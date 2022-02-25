@@ -1,0 +1,2 @@
+SELECT nome, InitCap(NOME) FROM TALUNO;
+SELECT InitCap('JOSE DA SILVA') FROM dual;

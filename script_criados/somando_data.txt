@@ -1,0 +1,39 @@
+
+--Funcoes de Data/Hora
+SELECT DATA, SYSDATE, DATA + 5 FROM TCONTRATO;
+
+SELECT SYSDATE - DATA AS DIF_DIAS FROM TCONTRATO;
+
+SELECT Trunc(SYSDATE - DATA) as DIAS FROM TCONTRATO;
+
+--Somando horas em uma data
+SELECT SYSDATE, SYSDATE + 5 / 24 as ADD_HORAS FROM TCONTRATO;
+
+--Somar minutos
+SELECT SYSDATE, SYSDATE + 15 / 1440 as ADD_MINUTOS FROM TCONTRATO;
+
+SELECT SYSDATE, SYSDATE + 30 / (3600 * 24) as ADD_SEGUNDOS FROM TCONTRATO;
+
+
+--Hora fica 00:00:00
+SELECT SYSDATE, Trunc(SYSDATE) FROM DUAL;
+
+--Diferenca de meses entre datas
+SELECT Months_Between(SYSDATE, SYSDATE-90) AS DIF_MES FROM DUAL;
+
+--Adiciona meses
+SELECT Add_Months(SYSDATE, 5) AS ADICIONA_MES_DATA FROM DUAL;
+
+--Proxima data a partir de uma dia da semana
+SELECT Next_Day(SYSDATE, 'QUARTA-FEIRA') AS PROXIMA_QUARTA_DATA FROM DUAL;
+
+--Ultimo dia do mes
+SELECT Last_Day(SYSDATE) AS ULTIMO_DIA_MES FROM DUAL;
+
+--Primeiro dia do proximo mes
+--até dia 15 do mes pega o primeiro dia do mes atual
+--a partir do dia 16 retorna o primeiro dia do proximo mes
+SELECT Round(SYSDATE, 'MONTH') AS PRIMEIRO_DIA_PROXIMO_MES FROM DUAL;
+
+--Primeiro dia do mes
+SELECT Trunc(SYSDATE,'MONTH') AS PRIMEIRO_DIA_MES_CORRENTE FROM DUAL;

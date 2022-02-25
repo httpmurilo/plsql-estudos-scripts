@@ -1,0 +1,2 @@
+SELECT cod_aluno, LPad(COD_ALUNO,5,'0') FROM TALUNO;
+

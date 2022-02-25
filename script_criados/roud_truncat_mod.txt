@@ -1,0 +1,8 @@
+SELECT Round(45.925, 2 ),  --45.93
+       Trunc(45.929, 2 ),  --45.92
+       Mod(10, 2) AS RESTO_DIVISAO,
+       Trunc(1.99),
+       Trunc(1.99, 2)
+FROM DUAL;
+ROUND(45.925,2) TRUNC(45.929,2) RESTO_DIVISAO TRUNC(1.99) TRUNC(1.99,2)
+          45.93           45.92             0           1          1.99

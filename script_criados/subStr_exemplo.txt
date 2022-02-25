@@ -1,0 +1,1 @@
+SELECT nome, SubStr(NOME,1,3) FROM TALUNO;
