@@ -1,0 +1,10 @@
+
+--confirmar alteracoes realizada (insert, update e delete)
+COMMIT;
+
+SELECT * FROM TALUNO;
+
+DELETE FROM TALUNO;
+
+--desfaz alteracoes realizada (insert, update e delete)
+ROLLBACK;
