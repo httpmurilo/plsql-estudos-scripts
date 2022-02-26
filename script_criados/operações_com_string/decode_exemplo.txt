@@ -1,0 +1,14 @@
+SELECT NOME, ESTADO,
+       Decode(ESTADO,'RS','GAUCHO',
+                     'AC','ACREANO',
+                     'SP','PAULISTA',
+                          'OUTROS' ) AS APELIDO
+FROM TALUNO;
+NOME   ESTADO APELIDO
+MARCIO AC     ACREANO
+PAULA  MT     OUTROS 
+MARIA  SC     OUTROS 
+VALDO  RS     GAUCHO 
+       RJ     OUTROS 
+VALDO  RS     GAUCHO 
+ALDO   RS     GAUCHO 

@@ -1,0 +1,3 @@
+
+--DD -> dia do mes
+SELECT SYSDATE, To_Char(SYSDATE,'DD') FROM DUAL

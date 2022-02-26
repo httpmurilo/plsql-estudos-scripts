@@ -1,0 +1,6 @@
+--Primeiro dia do proximo mes
+--até dia 15 do mes pega o primeiro dia do mes atual
+--a partir do dia 16 retorna o primeiro dia do proximo mes
+SELECT Round(SYSDATE, 'MONTH') AS PRIMEIRO_DIA_PROXIMO_MES FROM DUAL;
+PRIMEIRO_DIA_PROXIMO_MES
+01.03.2022 00:00:00     

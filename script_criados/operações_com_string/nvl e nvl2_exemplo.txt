@@ -1,0 +1,20 @@
+--NVL e NVL2
+SELECT * FROM tcontrato;
+
+SELECT Total,
+       Desconto,
+       Desconto+Total,
+       Nvl(Desconto,0),
+       Nvl(Desconto,0) + TOTAL,
+       Nvl2(DESCONTO, TOTAL, 0)
+FROM TContrato;
+
+
+TOTAL DESCONTO DESCONTO+TOTAL NVL(DESCONTO,0) NVL(DESCONTO,0)+TOTAL NVL2(DESCONTO,TOTAL,0)
+  500       10            510              10                   510                    500
+  500       18            518              18                   518                    500
+ 1500        5           1505               5                  1505                   1500
+ 1600       10           1610              10                  1610                   1600
+  800       10            810              10                   810                    800
+  445        0            445               0                   445                    445
+  445       20            465              20                   465                    445

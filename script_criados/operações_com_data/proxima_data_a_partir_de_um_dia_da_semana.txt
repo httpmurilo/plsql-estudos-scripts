@@ -1,0 +1,2 @@
+--Proxima data a partir de uma dia da semana
+SELECT Next_Day(SYSDATE, 'QUARTA-FEIRA') AS PROXIMA_QUARTA_DATA FROM DUAL;
