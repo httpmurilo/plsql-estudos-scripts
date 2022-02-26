@@ -1,0 +1,19 @@
+--Case
+SELECT NOME, Estado,
+       CASE
+         WHEN Estado = 'RS' THEN 'GAUCHO'
+         WHEN Estado = 'AC' THEN 'ACREANO'
+         WHEN Estado = 'RJ' AND SALARIO > 500 THEN 'CARIOCA'
+         ELSE 'OUTROS'
+       END AS Apelido
+FROM TALUNO;
+
+
+NOME   ESTADO APELIDO
+MARCIO AC     ACREANO
+PAULA  MT     OUTROS 
+MARIA  RS     GAUCHO 
+VALDO  RS     GAUCHO 
+FRIDA  SP     OUTROS 
+VALDO  RS     GAUCHO 
+ALDO   RS     GAUCHO 
