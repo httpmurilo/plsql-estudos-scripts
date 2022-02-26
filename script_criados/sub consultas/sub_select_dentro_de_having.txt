@@ -1,0 +1,21 @@
+  --Soma todos os itens, e mostra somente cujo o
+  --valor minimo seja maior que o valor medio
+  --dos cursos
+  SELECT COD_CURSO, Min(VALOR),Sum(VALOR),
+         Count(*) QTDE
+  FROM TITEM
+  WHERE cod_curso > 0
+  GROUP BY COD_CURSO
+  HAVING Min(VALOR) >=
+        (SELECT Avg(VALOR) FROM TCURSO)
+  ORDER BY Cod_Curso;
+###########################
+
+  --Soma o total de contrato por aluno e mostra
+  --somente cujo o menor contrato seja maior que
+  --o valor medio de curso
+  SELECT COD_ALUNO, Min(TOTAL), Sum(TOTAL)
+  FROM TCONTRATO
+  GROUP BY COD_ALUNO
+  HAVING Min(TOTAL) >
+     (SELECT Avg(VALOR) FROM TCURSO);

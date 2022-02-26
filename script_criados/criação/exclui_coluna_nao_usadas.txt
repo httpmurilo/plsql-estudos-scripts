@@ -1,0 +1,2 @@
+--Excluir colunas nao usadas
+ALTER TABLE TCONTRATO DROP UNUSED COLUMNS;

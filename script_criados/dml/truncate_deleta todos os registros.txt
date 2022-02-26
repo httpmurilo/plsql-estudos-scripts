@@ -1,0 +1,4 @@
+
+--Delete todos os registros da tabela
+--Nao tem clausula Where
+TRUNCATE TABLE TDESCONTO2;

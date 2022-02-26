@@ -1,0 +1,3 @@
+----------------------------------------
+CREATE TABLE TDESCONTO2
+  AS SELECT * FROM TDESCONTO

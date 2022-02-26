@@ -1,0 +1,2 @@
+--alterar coluna
+ALTER TABLE TCONTRATO_VIP MODIFY VALOR NUMBER(8,2); --

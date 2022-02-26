@@ -1,0 +1,2 @@
+--add coluna na tabela
+ALTER TABLE TCONTRATO_VIP ADD VALOR NUMBER(5,2); -- 999,99

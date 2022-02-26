@@ -1,0 +1,13 @@
+
+--comentario na tabela -
+COMMENT ON TABLE TCONTRATO IS 'Informações de Contratos';
+
+--comentario na coluna da tabela
+COMMENT ON COLUMN TCONTRATO.COD_CONTRATO IS 'Código do Contrato';
+
+COMMENT ON COLUMN TCONTRATO.DATA IS 'Data de emissão do Contrato';
+
+SELECT * FROM USER_COL_COMMENTS WHERE TABLE_NAME='TCONTRATO'
+
+SELECT * FROM USER_TAB_COMMENTS WHERE TABLE_NAME='TCONTRATO'
+
