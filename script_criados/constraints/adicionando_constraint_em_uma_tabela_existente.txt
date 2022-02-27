@@ -1,0 +1,3 @@
+ALTER TABLE TRUA ADD CONSTRAINT fk_cidadebairro
+FOREIGN KEY(cod_cidade, cod_bairro)
+REFERENCES tbairro(cod_cidade, cod_bairro);

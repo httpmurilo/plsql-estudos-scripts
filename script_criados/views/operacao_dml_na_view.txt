@@ -1,0 +1,15 @@
+--OPERACAO DML NA VIEW
+CREATE OR REPLACE VIEW vcursos1000ck
+  AS
+   SELECT cod_curso, nome, valor
+   FROM   TCurso
+   WHERE  VALOR = 1000
+   WITH CHECK OPTION CONSTRAINT vcursos1000_ck;
+
+
+
+
+
+INSERT INTO vCursos1000ck
+         (cod_curso, nome, valor)
+VALUES   (52,'TESTE Y', 1000);

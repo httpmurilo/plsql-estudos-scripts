@@ -1,0 +1,26 @@
+
+
+--Laço de repetição 1 até 10
+DECLARE
+  vContador INTEGER := 0;
+BEGIN
+  LOOP
+    vContador := vContador + 1;
+    Dbms_Output.Put_Line(vContador);
+    EXIT WHEN vContador = 10;
+  END LOOP;
+  Dbms_Output.Put_Line('Fim do LOOP');
+END;
+
+--Laço de repetição 10 até 1
+DECLARE
+  vContador INTEGER := 10;
+BEGIN
+  LOOP
+    vContador := vContador - 1;
+    Dbms_Output.Put_Line(vContador);
+    EXIT WHEN vContador = 0;
+  END LOOP;
+  Dbms_Output.Put_Line('Fim do LOOP');
+END;
+

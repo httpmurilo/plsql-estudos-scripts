@@ -1,0 +1,16 @@
+
+
+--Aninhamento
+DECLARE
+  VTESTE VARCHAR(10) := 'TESTE';
+BEGIN
+
+  DECLARE
+    VTESTE VARCHAR(10) := 'XXXX';
+  BEGIN
+    Dbms_Output.Put_Line(VTESTE);
+  END;
+  --
+  Dbms_Output.Put_Line(VTESTE);
+
+END;

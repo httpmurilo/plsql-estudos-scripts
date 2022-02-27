@@ -1,0 +1,21 @@
+DECLARE
+  vNome VARCHAR(30) := 'Outro';
+  vCidade VARCHAR(30);     vEstado VARCHAR(2) := 'RS';
+BEGIN
+  IF (vNome = 'Gaucho') THEN
+    vCidade := 'Porto Alegre';    vEstado := 'RS';
+  ELSIF (vNome = 'Carioca') THEN
+    vCidade := 'Rio de Janeiro';  vEstado := 'RJ';
+  ELSIF (vNome = 'Acreano') OR (vNome = 'Amapa') THEN
+    vCidade := 'Nao existe';      vEstado := 'AC';
+  ELSE
+    IF (vEstado<>'RS') THEN
+      vCidade := 'Estrangeiro';
+      vEstado := 'XX';
+    ELSE
+      vCidade := 'Pelotas';
+      vEstado := 'RS';
+    END IF;
+  END IF;
+  Dbms_Output.Put_Line(vCidade||' - '||vEstado);
+END;

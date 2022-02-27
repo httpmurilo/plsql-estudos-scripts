@@ -1,0 +1,14 @@
+
+
+--For loop -> mais indicado para laços em tabelas
+DECLARE
+  vContador INTEGER;
+BEGIN
+  FOR vContador in 1..10
+  LOOP
+    --vContador := vContador + 1;
+    Dbms_Output.Put_Line(vContador);
+    --EXIT WHEN vContador = 5;
+  END LOOP;
+END;
+

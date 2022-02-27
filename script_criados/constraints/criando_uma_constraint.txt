@@ -1,0 +1,5 @@
+CREATE TABLE tcidade (
+  cod_cidade INTEGER NOT NULL,
+  nome VARCHAR2(40),
+  CONSTRAINT pk_cidade PRIMARY KEY(cod_cidade)
+);

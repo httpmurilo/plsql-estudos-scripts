@@ -1,0 +1,7 @@
+
+CREATE TABLE tbairro (
+  cod_cidade INTEGER NOT NULL,
+  cod_bairro INTEGER NOT NULL,
+  nome       VARCHAR2(40),
+  CONSTRAINT pk_bairro PRIMARY KEY(cod_cidade,cod_bairro)
+);

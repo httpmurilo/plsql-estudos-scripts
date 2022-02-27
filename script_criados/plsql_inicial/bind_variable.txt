@@ -1,0 +1,13 @@
+--Bind variable
+VARIABLE vDESCONTO2 NUMBER
+
+DECLARE
+  VCOD_ALUNO NUMBER := 1;
+BEGIN
+  :vDESCONTO2 := 0.90;
+  Dbms_Output.put_line('desconto 2: '||:vDESCONTO2);
+
+  UPDATE TContrato SET
+  TOTAL = TOTAL * :vDESCONTO2
+  WHERE COD_ALUNO = VCOD_ALUNO;
+END;

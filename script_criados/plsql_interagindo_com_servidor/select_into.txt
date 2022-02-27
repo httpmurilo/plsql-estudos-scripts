@@ -1,0 +1,11 @@
+DECLARE
+   vDt_compra  tcontrato.Data%TYPE;
+   vDt_curso   tcontrato.Data%TYPE;
+BEGIN
+   SELECT data, data + 10
+   INTO   vDt_compra, vDt_curso
+   FROM   tcontrato
+   WHERE  cod_contrato = &Contrato;
+   Dbms_Output.Put_Line('Data Compra: '||vDt_compra);
+   Dbms_Output.Put_Line('Data Curso: '||vDt_curso);
+END;

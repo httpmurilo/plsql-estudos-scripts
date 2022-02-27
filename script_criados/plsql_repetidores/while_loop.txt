@@ -1,0 +1,19 @@
+
+--While Loop
+DECLARE
+  vContador INTEGER := 0;
+  vTexto VARCHAR(10);
+BEGIN
+  WHILE vContador < 10
+  LOOP
+    vContador := vContador + 1;
+    IF (vContador Mod 2)=0 THEN
+      vTexto := 'Par';
+    ELSE
+      vTexto := 'Impar';
+    END IF;
+    Dbms_Output.Put_Line(vContador|| ' -> '||vTexto);
+  END LOOP;
+END;
+
+

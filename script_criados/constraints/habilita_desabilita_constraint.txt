@@ -1,0 +1,3 @@
+--Desabilitando/Habilitando constraint
+ALTER TABLE TPESSOA DISABLE CONSTRAINT uk_cpf;
+ALTER TABLE TPESSOA ENABLE CONSTRAINT uk_cpf;

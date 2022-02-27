@@ -1,0 +1,15 @@
+
+DECLARE
+   vContrato   NUMBER := &cod_contrato;
+   vtexto VARCHAR2(50);
+BEGIN
+  UPDATE TContrato SET
+  desconto = desconto + 2
+  WHERE Cod_Contrato = VContrato;
+
+  vtexto := SQL%ROWCOUNT;
+  --Retorna qtde de registros afetados
+  --pelo comando sql
+
+  Dbms_Output.Put_Line(vtexto|| ' linhas atualizadas.');
+END;

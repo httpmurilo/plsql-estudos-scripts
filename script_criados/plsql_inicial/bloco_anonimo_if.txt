@@ -1,0 +1,18 @@
+DECLARE
+  vPreco1 NUMBER(8,2)   := 10;
+  vPreco2 NUMBER(8,2)   := 20;
+  vFlag BOOLEAN; --True ou False
+BEGIN
+  vFlag := (vPreco1>vPreco2);
+  IF (vFlag=True) THEN --Se vFlag = True Entao
+    Dbms_Output.Put_Line('Verdadeiro');
+  ELSE --Senao
+    Dbms_Output.Put_Line('Falso');
+  END IF; --Fim do If
+  IF (VPRECO1>VPRECO2) THEN
+    Dbms_Output.Put_Line('vPreco1 é maior');
+  ELSE
+    Dbms_Output.Put_Line('vPreco2 é maior');
+  END IF;
+END;
+

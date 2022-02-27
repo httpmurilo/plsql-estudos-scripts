@@ -1,0 +1,6 @@
+DECLARE
+  vContrato TContrato.COD_CONTRATO%TYPE := &contrato;
+BEGIN
+  DELETE FROM TContrato
+  WHERE  Cod_Contrato = vContrato;
+END;

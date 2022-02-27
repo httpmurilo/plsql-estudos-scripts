@@ -1,0 +1,13 @@
+
+CREATE SEQUENCE SEQ_ALUNO1
+START WITH 60
+--Valor Inicial
+INCREMENT BY 2
+--Qtde a Incrementar
+MINVALUE 60
+--Valor Minimo
+MAXVALUE 100
+--Valor Maximo
+NOCACHE
+--nao guarda em cache faixa de valores -- 20
+NOCYCLE;

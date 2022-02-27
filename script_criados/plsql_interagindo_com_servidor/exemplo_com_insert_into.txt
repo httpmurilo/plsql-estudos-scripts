@@ -1,0 +1,12 @@
+DECLARE
+  vCod tcontrato.cod_contrato%TYPE;
+BEGIN
+  SELECT SEQ_CONTRATO1.NEXTVAL
+  INTO   vCod FROM   Dual;
+
+  INSERT INTO TContrato(COD_CONTRATO, DATA,
+                        COD_ALUNO, DESCONTO)
+  VALUES(vCod, SYSDATE, 2, NULL);
+
+  Dbms_Output.Put_Line('Criado Contrato: '||vCod);
+END;
