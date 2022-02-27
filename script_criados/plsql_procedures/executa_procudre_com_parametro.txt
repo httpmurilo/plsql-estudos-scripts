@@ -1,0 +1,35 @@
+
+
+CREATE OR REPLACE PROCEDURE Consulta_Aluno
+( pCodigo        IN  TALUNO.Cod_Aluno%TYPE,
+  pNome          OUT TALUNO.Nome%TYPE,
+  pCep           OUT TALUNO.Cep%TYPE,
+  pCidade        OUT TALUNO.Cidade%TYPE)
+IS
+BEGIN
+  SELECT nome, Cep, cidade
+  INTO   pNome, pCep, pCidade
+  FROM   taluno
+  WHERE  cod_aluno = pCodigo;
+END;
+
+
+--Teste
+DECLARE
+  vnome VARCHAR2(30);
+  vcidade VARCHAR(30);
+  vcep VARCHAR(10);
+  vCod INTEGER := &Codigo;
+BEGIN
+  --executa a procedure
+ -- Consulta_aluno(vcod, vnome, vcep, vcidade);
+
+  Consulta_Aluno(pNome => vnome,
+                 pCodigo => vcod,
+                 pCidade => vcidade,
+                 pCep => vcep);
+
+  Dbms_Output.Put_Line(vNome);
+  Dbms_Output.Put_Line(vCidade);
+  Dbms_Output.Put_Line(vcep);
+END;

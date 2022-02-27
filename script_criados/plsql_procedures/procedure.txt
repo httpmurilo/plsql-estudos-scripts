@@ -1,0 +1,11 @@
+
+CREATE OR REPLACE PROCEDURE aumenta_precocurso(pCod_Curso NUMBER)
+IS
+  -- Variaveis
+BEGIN
+  --Aumenta 50%
+  UPDATE TCURSO SET
+  VALOR = VALOR * 1.5
+  WHERE COD_CURSO = pCod_Curso;
+END;
+

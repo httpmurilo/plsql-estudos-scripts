@@ -1,0 +1,21 @@
+
+CREATE OR REPLACE PROCEDURE Consulta_Aluno2
+(pRegistro IN OUT TALUNO%ROWTYPE)
+IS
+  CURSOR CSQL IS
+    SELECT * FROM TALUNO WHERE cod_aluno = pRegistro.COD_ALUNO;
+BEGIN
+  OPEN CSQL;
+  FETCH CSQL INTO pRegistro;
+  CLOSE CSQL;
+END;
+
+--Teste
+DECLARE
+  vRegistro TALUNO%ROWTYPE;
+BEGIN
+  vRegistro.COD_ALUNO := &Codigo;
+  Consulta_Aluno2(vRegistro);
+  Dbms_Output.Put_Line(vRegistro.Nome);
+  Dbms_Output.Put_Line(vRegistro.Cidade||' Cep: '||vRegistro.Cep);
+END;

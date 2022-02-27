@@ -1,0 +1,40 @@
+
+DECLARE
+   --
+   TYPE Rec_aluno IS RECORD
+   ( cod_aluno NUMBER NOT NULL := 0,
+     nome    TALUNO.Nome%TYPE,
+     cidade TALUNO.Cidade%TYPE );
+   --
+   Registro rec_aluno;
+BEGIN
+   registro.cod_aluno := 50;
+   registro.nome      := 'Master';
+   registro.cidade    := 'Novo Hamburgo';
+   ---
+   Dbms_Output.Put_Line('Codigo: '||registro.cod_aluno);
+   Dbms_Output.Put_Line('  Nome: '||registro.nome);
+   Dbms_Output.Put_Line('Cidade: '||registro.cidade);
+   ---
+END;
+
+
+
+DECLARE
+  reg TAluno%ROWTYPE;  --Record
+  vcep VARCHAR(10) := '98300000';
+BEGIN
+  SELECT COD_ALUNO, NOME, CIDADE
+  INTO Reg.cod_aluno, Reg.nome, Reg.cidade
+  FROM TALUNO
+  WHERE COD_ALUNO = 1;
+
+  vCep := '93500000';
+  reg.cep := vCep;
+
+  Dbms_Output.Put_Line('Codigo: ' ||reg.cod_aluno);
+  Dbms_Output.Put_Line('Nome  : ' ||reg.nome);
+  Dbms_Output.Put_Line('Cidade: ' ||reg.cidade);
+  Dbms_Output.Put_Line('Cep   : ' ||reg.cep);
+END;
+

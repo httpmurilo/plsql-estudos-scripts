@@ -1,0 +1,15 @@
+---
+DECLARE
+  CURSOR c1 (pCod_aluno NUMBER) IS
+    SELECT * FROM TAluno
+    WHERE Cod_aluno = pCod_aluno
+   FOR UPDATE OF NOME NOWAIT;
+  --bloquea a coluna nome para alteracao
+  Reg c1%ROWTYPE;
+BEGIN
+  OPEN c1(&codigo);
+  FETCH c1 INTO reg;
+  Dbms_Output.Put_Line(reg.cod_aluno ||' - ' || reg.nome);
+  CLOSE c1; --libera o registro para alteracao
+END;
+--

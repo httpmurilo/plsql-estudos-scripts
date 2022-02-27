@@ -1,0 +1,15 @@
+
+DECLARE
+  TYPE tipo IS TABLE OF VARCHAR2(30) INDEX BY VARCHAR2(2);
+  --
+  uf_capital tipo;
+BEGIN
+  uf_capital('RS') := 'PORTO ALEGRE';
+  uf_capital('RJ') := 'RIO DE JANEIRO';
+  uf_capital('PR') := 'CURITIBA';
+  uf_capital('MT') := 'CUIABA';
+  dbms_output.put_line(uf_capital('RS'));
+  dbms_output.put_line(uf_capital('RJ'));
+  dbms_output.put_line(uf_capital('PR'));
+  dbms_output.put_line(uf_capital('MT'));
+END;

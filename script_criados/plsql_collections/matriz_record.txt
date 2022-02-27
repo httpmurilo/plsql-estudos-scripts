@@ -1,0 +1,16 @@
+
+DECLARE
+  TYPE T_ALUNO IS TABLE OF TALUNO.NOME%TYPE
+  INDEX BY BINARY_INTEGER; --Matriz
+
+  REGISTRO T_ALUNO; --Record
+BEGIN
+  REGISTRO(1) := 'MARCIO';
+  REGISTRO(2) := 'JOSE';
+  REGISTRO(3) := 'PEDRO';
+  --
+  Dbms_Output.Put_Line('Nome 1: '||registro(1));
+  Dbms_Output.Put_Line('Nome 2: '||registro(2));
+  Dbms_Output.Put_Line('Nome 3: '||registro(3));
+END;
+

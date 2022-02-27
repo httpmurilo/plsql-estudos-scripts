@@ -1,0 +1,15 @@
+
+--
+DECLARE
+  TYPE nome_type IS TABLE OF taluno.nome%TYPE;
+  nome_table nome_type := nome_type();  --Criando Instancia
+BEGIN
+  nome_table.EXTEND; -- alocando uma nova linha
+  nome_table(1) := 'Marcelo';
+  nome_table.EXTEND; -- alocando uma nova linha
+  nome_table(2) := 'Marcio';
+  Dbms_Output.Put_Line('Nome 1: '||nome_table(1));
+  Dbms_Output.Put_Line('Nome 2: '||nome_table(2));
+END;
+
+

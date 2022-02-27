@@ -1,0 +1,16 @@
+
+DECLARE
+   CURSOR c1 IS
+     SELECT * FROM TALUNO
+     FOR UPDATE;
+   Reg_aluno c1%ROWTYPE;
+BEGIN
+   FOR reg_aluno IN c1
+   LOOP
+      UPDATE TALUNO
+      SET    nome = InitCap(reg_aluno.nome)
+      WHERE CURRENT OF c1;  --bloqueia somente o reg atual
+      Dbms_Output.Put_Line('Nome: '||InitCap(reg_aluno.nome));
+   END LOOP;
+   COMMIT;
+END;

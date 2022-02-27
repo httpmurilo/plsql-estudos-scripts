@@ -1,0 +1,36 @@
+DECLARE
+  vCod   taluno.cod_aluno%TYPE := 566;
+  vCidade taluno.cidade%TYPE;    x NUMBER;
+BEGIN
+  SELECT Cidade INTO vCidade
+  FROM TAluno
+  WHERE nome LIKE '%';
+  --WHERE  cod_aluno = vCod;
+  X := 0 / 0;
+  Dbms_Output.Put_Line('Cidade: '||vCidade);
+EXCEPTION
+  WHEN no_data_found THEN
+    RAISE_APPLICATION_ERROR(-20001,
+           'Aluno Inexistente! '||SQLCODE||' '||SQLERRM);
+  WHEN too_many_rows THEN
+    RAISE_APPLICATION_ERROR(-20002,
+           'Registro Duplicado! '||SQLCODE||' '||SQLERRM);
+  WHEN others THEN
+    RAISE_APPLICATION_ERROR(-20003,
+           'Exceção Desconhecida! '||SQLCODE||' '||SQLERRM);
+END;
+
+
+
+
+BEGIN
+   OPEN c1; -- abre cursor
+   LOOP
+      FETCH c1 INTO vCod_Aluno, vNome;  --pega registro atual
+      EXIT WHEN c1%ROWCOUNT > 10 OR c1%NOTFOUND;
+      Dbms_Output.Put_Line('Codigo: '||
+        LPad(vcod_aluno,4,'0')||' - '||'Nome: '||vNome);
+   END LOOP;
+   CLOSE c1; --fecha cursor
+END;
+

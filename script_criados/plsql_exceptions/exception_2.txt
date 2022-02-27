@@ -1,0 +1,17 @@
+--
+DECLARE
+   vDt_vencimento DATE;
+   vConta  NUMBER := 100; --codigo da conta
+   eConta_vencida EXCEPTION;
+BEGIN
+  SELECT vencimento INTO vDt_vencimento
+  FROM CONTAS WHERE codigo = vConta;
+  IF vDt_vencimento < TRUNC(SYSDATE) THEN
+    RAISE eConta_vencida;
+  END IF;
+ EXCEPTION
+  WHEN eConta_vencida THEN
+    Dbms_Output.Put_Line('Conta vencida');
+    UPDATE contas SET valor = valor + juros
+    WHERE  codigo = vConta;
+END;

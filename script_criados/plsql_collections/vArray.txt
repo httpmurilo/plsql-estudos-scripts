@@ -1,0 +1,10 @@
+--  VARRAY
+DECLARE
+  TYPE nome_varray IS VARRAY(5) OF taluno.nome%TYPE;
+  nome_vetor nome_varray := nome_varray();
+BEGIN
+  nome_vetor.EXTEND;
+  nome_vetor(1) := 'Master';
+  Dbms_Output.Put_Line(nome_vetor(1));
+END;
+

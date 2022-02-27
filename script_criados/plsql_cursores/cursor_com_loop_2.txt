@@ -1,0 +1,20 @@
+DECLARE
+  CURSOR c1 IS
+    SELECT * FROM TAluno;
+  Reg TAluno%ROWTYPE;
+BEGIN
+  FOR reg IN c1  --open, laço, fetch, close, exit when
+  LOOP
+    Dbms_Output.Put_Line('Codigo: '||
+       LPad(reg.cod_aluno,5,'0')||' - ' || 'Nome: '||reg.nome);
+  END LOOP;
+END;
+--
+DECLARE
+  Reg TALUNO%ROWTYPE;
+BEGIN
+  FOR reg IN (SELECT * FROM TALUNO)
+  LOOP
+    Dbms_Output.Put_Line(reg.cod_aluno ||' - ' || reg.nome);
+  END LOOP;
+END;
