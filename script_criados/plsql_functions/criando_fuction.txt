@@ -1,0 +1,10 @@
+CREATE OR REPLACE FUNCTION CONSULTA_PRECO
+(pCod_Curso NUMBER) RETURN NUMBER
+AS
+  vValor NUMBER;
+BEGIN
+  SELECT valor INTO vValor FROM TCurso
+  WHERE cod_curso = pCod_Curso;
+
+  RETURN(vValor);
+END;

@@ -1,0 +1,14 @@
+CREATE OR REPLACE VIEW vcontratos_pares
+AS SELECT COD_CONTRATO, DATA, COD_ALUNO, DESCONTO, TOTAL
+   FROM   tcontrato
+   WHERE  MOD( COD_CONTRATO, 2 ) = 0;
+----------------
+SELECT * FROM vcontratos_pares;
+----------------
+CREATE OR REPLACE TRIGGER tri_contratos_pares
+INSTEAD OF INSERT OR DELETE OR UPDATE ON vcontratos_pares
+DECLARE
+BEGIN
+  INSERT INTO Log( usuario, data, obs )
+  VALUES (USER, SYSDATE, 'DML da view VCONTRATOS_PARES.' );
+END;

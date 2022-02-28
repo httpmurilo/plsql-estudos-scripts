@@ -1,0 +1,16 @@
+
+CREATE OR REPLACE TRIGGER calc_comissao
+BEFORE INSERT OR UPDATE OF total ON TContrato
+REFERENCING OLD AS antigo
+            NEW AS novo
+FOR EACH ROW
+WHEN(Novo.Total >= 5000)
+DECLARE
+  vComissao NUMERIC(6,2) := 0.15;
+BEGIN
+  IF(:novo.Total <= 10000) THEN
+    :novo.valor_comissao := :novo.Total*(vComissao);
+  ELSE
+    :novo.valor_comissao := :novo.Total*(vComissao+0.01);
+  END IF;
+END;

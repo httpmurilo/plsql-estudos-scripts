@@ -1,0 +1,10 @@
+
+CREATE OR REPLACE TRIGGER gera_Log_CURSO
+BEFORE UPDATE OF VALOR ON TCURSO
+FOR EACH ROW
+BEGIN
+  INSERT INTO Log( Usuario, data, obs,
+                   Valor_antigo, Valor_novo)
+  VALUES ( USER, SYSDATE,'Curso Alterado: '||:OLD.NOME,
+           :OLD.VALOR, :NEW.VALOR );
+END;

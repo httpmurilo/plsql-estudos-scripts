@@ -1,0 +1,21 @@
+
+CREATE OR REPLACE TRIGGER audita_aluno
+AFTER INSERT OR DELETE OR UPDATE ON TALUNO
+FOR EACH ROW --Executa para cada linha afetada
+             --Sem o FOR EACH ROW executa uma vez só
+BEGIN
+  IF( DELETING )THEN
+    INSERT INTO log( usuario, data, OBS )
+    VALUES ( USER, SYSDATE,'Linhas deletadas.');
+  ELSIF( INSERTING )THEN
+    INSERT INTO log( usuario, data, OBS )
+    VALUES ( USER, SYSDATE, 'Linhas inseridas.' );
+  ELSIF( UPDATING('SALARIO') )THEN
+    INSERT INTO log
+    VALUES ( USER, SYSDATE,:OLD.SALARIO,:NEW.SALARIO,
+    'Alterado Salario');
+  ELSE
+    INSERT INTO log( usuario, data, OBS )
+    VALUES ( USER, SYSDATE, 'Atualização Aluno.' );
+  END IF;
+END;

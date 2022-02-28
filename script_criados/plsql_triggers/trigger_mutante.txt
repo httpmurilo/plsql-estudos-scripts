@@ -1,0 +1,10 @@
+CREATE OR REPLACE TRIGGER tri_atual_prereq
+AFTER UPDATE ON tcurso FOR EACH ROW
+BEGIN
+  UPDATE tcurso
+  SET    pre_req = :new.cod_curso
+  WHERE  pre_req = :old.cod_curso;
+END;
+
+
+UPDATE TCurso SET Cod_Curso = 100 WHERE Cod_Curso = 3;

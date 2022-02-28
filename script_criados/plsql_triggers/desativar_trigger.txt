@@ -1,0 +1,1 @@
+ALTER TRIGGER valida_horario_curso2 DISABLE

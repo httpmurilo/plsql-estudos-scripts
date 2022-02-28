@@ -1,0 +1,40 @@
+
+--Exercicio
+1) Criar uma procedure para cadastrar aluno,
+usar SEQUENCE, usar bloco anonimo para executar
+e imprimir o valor do codigo criado.
+
+  out   in     in
+ (pcod, pnome, pcidade)
+
+ CREATE SEQUENCE seq_aluno START WITH 100;
+
+ SELECT Seq_Aluno.NEXTVAL INTO pCod FROM Dual;
+
+
+
+--vCod NUMBER;
+--Pcod := Seq_Alu.NEXTVAL;
+
+CREATE SEQUENCE seq_alu START WITH 500;
+-------------------------------------------------------
+CREATE OR REPLACE PROCEDURE cad_aluno
+(pcod OUT NUMBER,
+ pnome IN VARCHAR,
+ pcidade IN VARCHAR)
+IS
+BEGIN
+  SELECT SEQ_ALU.NEXTVAL INTO PCOD FROM DUAL;
+  INSERT INTO taluno(cod_Aluno,Nome,Cidade)
+  VALUES (pCod,pNome,pCidade);
+END;
+-----------------------------------------------------
+DECLARE
+  vcod NUMBER;
+  vnome VARCHAR(20)   := '&nome';
+  vcidade VARCHAR(20) := '&cidade';
+BEGIN
+  cad_aluno(vcod,vnome,vcidade);
+  Dbms_Output.Put_Line('Aluno cadastrado, Codigo->'||vcod);
+END;
+

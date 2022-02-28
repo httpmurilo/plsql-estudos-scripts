@@ -1,0 +1,9 @@
+CREATE OR REPLACE TRIGGER VALIDA_HORARIO_CURSO
+BEFORE INSERT OR DELETE ON TContrato
+BEGIN
+  IF(TO_CHAR(SYSDATE, 'D') IN (1) OR
+     To_Number(To_Char(SYSDATE,'HH24'))
+     NOT BETWEEN 8 AND 18) THEN
+   Raise_Application_Error(-20001,'Fora horário comercial');
+  END IF;
+END;

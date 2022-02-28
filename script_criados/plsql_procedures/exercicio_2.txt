@@ -1,0 +1,23 @@
+2)Criar uma procedure para excluir registros da tabela de
+contrato (TContrato) passar como parametros de entrada
+o codigo do contrato a ser excluido e receber a quantidade
+de registros excluidos como saida e imprimir esta informaçao.
+
+
+
+CREATE OR REPLACE PROCEDURE exclui_contrato
+  (pCod IN NUMBER, pMsg OUT VARCHAR)
+AS
+BEGIN
+  DELETE FROM TCONTRATO
+  WHERE COD_CONTRATO = pCod;
+  pMsg := SQL%ROWCOUNT ||' Contrato Excluido ';
+END;
+
+----Teste
+DECLARE
+  vMsg VARCHAR(40);
+BEGIN
+  Exclui_Contrato(&codigo, vMsg);
+  Dbms_Output.Put_Line(vMsg);
+END;

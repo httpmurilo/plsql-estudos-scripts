@@ -1,0 +1,7 @@
+DECLARE
+  vCod NUMBER := &codigo;
+  vValor NUMBER;
+BEGIN
+  vValor := consulta_preco(vCod);
+  Dbms_Output.Put_Line('Preco do curso: '||vValor);
+END;
