@@ -1,0 +1,14 @@
+
+SELECT COD_CONTRATO, DATA, DESCONTO, TOTAL
+FROM   TCONTRATO
+WHERE  DESCONTO IS NOT NULL
+
+MINUS  -- traz todos os registros da primeira consulta
+       -- menos os da segunda consulta ( ignora repetido )
+
+SELECT COD_CONTRATO, DATA, DESCONTO, TOTAL
+FROM   TCONTRATO
+WHERE  TOTAL > 2000
+
+ORDER  BY 1;
+

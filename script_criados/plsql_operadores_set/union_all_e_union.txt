@@ -1,0 +1,12 @@
+
+  SELECT COD_ALUNO, TOTAL , DESCONTO
+  FROM TCONTRATO
+  WHERE COD_ALUNO = 1
+
+  UNION ALL       ---Nao agrupa iguais
+  --UNION         ---Agrupa iguais
+
+  SELECT COD_ALUNO, TOTAL, DESCONTO
+  FROM TCONTRATO
+  WHERE TOTAL >= 1000;
+

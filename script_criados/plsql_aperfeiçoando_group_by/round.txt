@@ -1,0 +1,8 @@
+SELECT COD_ALUNO,
+       Trunc(DATA),
+       SUM(total) "Total do Dia",
+       ROUND(RATIO_TO_REPORT(SUM(total)) OVER(PARTITION BY
+       Trunc(DATA)) * 100, 2) "% do Dia"
+FROM TCONTRATO
+GROUP BY COD_ALUNO, Trunc(DATA)
+ORDER BY 2 ASC, COD_ALUNO;

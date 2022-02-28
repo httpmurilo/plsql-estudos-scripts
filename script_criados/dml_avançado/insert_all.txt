@@ -1,0 +1,7 @@
+INSERT ALL
+  INTO tcurso (cod_curso,nome, valor)
+  INTO taluno (cod_aluno,nome, salario)
+      SELECT cod_contrato+50,'INSERT ALL', 1013
+      FROM TCONTRATO
+      WHERE COD_CONTRATO=1;
+

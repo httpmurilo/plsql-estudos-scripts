@@ -1,0 +1,6 @@
+--Total igual repete o rank
+--   1 - 1 - 3 - 4 - 4 - 6
+SELECT Trunc(DATA), COD_ALUNO, SUM(TOTAL),
+       RANK() OVER (ORDER BY SUM(TOTAL) DESC) POSICAO
+FROM TCONTRATO
+GROUP BY (Trunc(DATA), COD_ALUNO)

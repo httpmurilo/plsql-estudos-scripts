@@ -1,0 +1,7 @@
+SELECT Trunc(DATA), SUM(Total) total_dia,
+  LAG  (SUM(Total),1) OVER (ORDER BY Trunc(DATA)) anterior,
+  LEAD (SUM(Total),1) OVER (ORDER BY Trunc(DATA)) proximo
+FROM TCONTRATO
+GROUP BY Trunc(DATA)
+ORDER BY Trunc(DATA);
+
