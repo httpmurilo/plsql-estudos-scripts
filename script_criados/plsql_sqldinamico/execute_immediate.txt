@@ -1,0 +1,14 @@
+CREATE OR REPLACE PROCEDURE insere_grandes_contratos
+(pTotal IN tcontrato.total%TYPE)
+IS
+BEGIN
+  EXECUTE IMMEDIATE ' INSERT INTO grandes_contratos    ' ||
+                    ' SELECT cod_contrato, data, total ' ||
+                    ' FROM tcontrato                   ' ||
+                    ' WHERE total >  :1   '
+                    USING pTotal;
+ COMMIT;
+END;
+--
+EXEC insere_grandes_contratos(1000);
+SELECT * FROM GRANDES_CONTRATOS;

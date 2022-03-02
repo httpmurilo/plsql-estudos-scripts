@@ -1,0 +1,23 @@
+
+CREATE OR REPLACE PROCEDURE consulta_generica
+(pColunas   IN VARCHAR2,
+ pTabelas   IN VARCHAR2,
+ pCondicoes IN VARCHAR2     )
+IS
+  TYPE refCursor IS REF CURSOR;
+  cCursor1       refCursor;
+  vRetorno VARCHAR2(4000);
+  vRet VARCHAR2(4000);
+BEGIN
+  OPEN cCursor1 FOR ' SELECT '||pColunas||
+                    ' FROM '||pTabelas||
+                    ' WHERE '||pCondicoes;
+  LOOP
+    FETCH cCursor1 INTO vRetorno, vret;
+    EXIT WHEN cCursor1%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE(vRetorno||' - '||vret);
+  END LOOP;
+  CLOSE cCursor1;
+END;
+--
+EXEC Consulta_Generica ('NOME,CIDADE','TALUNO','1=1');
