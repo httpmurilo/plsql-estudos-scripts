@@ -1,0 +1,39 @@
+Bulk Collect
+O uso do Bulk Collect é aplicado para a manipulação de grande massa de dados. Com seu uso correto, podemos ter vários tipos de ganhos.
+
+Podemos ter: Aplicações mais rápidas, alocação dos dados na memória, sem a necessidade de refazer a busca no banco. Porem temos um risco também, pois se não aplicarmos corretamente as diretrizes na PGA(Program Global Area), podemos ter problemas na quantidade de dados carregados na memória.
+
+Para estes problemas temos a claúsula LIMIT, que limita os dados que foram para a memória.
+
+Exemplo:
+
+CREATE TABLE TPRODUTO (
+  COD_PRODUTO NUMBER(5),
+  DESCRICAO VARCHAR2(40),
+  CONSTRAINT PRODUTO_PK PRIMARY KEY (COD_PRODUTO));
+Inserindo os dados na tabela:
+
+BEGIN
+  INSERT INTO TPRODUTO
+  SELECT LEVEL, DBMS_RANDOM.STRING('A', 40) FROM DUAL CONNECT BY LEVEL <= 100;
+  COMMIT;
+END;
+--Vamos agora usar o Bulk Collect com limite de 50 registros. 
+--Vamos colocar a cada loop apenas 50 registros na memória.
+
+DECLARE
+  CURSOR CUR_PRODUTO IS
+  SELECT COD_PRODUTO, DESCRICAO FROM TPRODUTO;
+  TYPE TROW_PRODUTO IS TABLE OF CUR_PRODUTO%ROWTYPE INDEX BY PLS_INTEGER;
+  ROW_PRODUTO TROW_PRODUTO;
+BEGIN
+  OPEN CUR_PRODUTO;
+  LOOP
+    FETCH CUR_PRODUTO BULK COLLECT INTO ROW_PRODUTO LIMIT 50;
+    EXIT WHEN ROW_PRODUTO.COUNT = 0;
+    FOR I IN 1 .. ROW_PRODUTO.Count LOOP
+      DBMS_OUTPUT.PUT_LINE('Código: ' || ROW_PRODUTO(I).COD_PRODUTO || ' Descrição: ' || ROW_PRODUTO(I).DESCRICAO);
+    END LOOP;
+  END LOOP;
+  CLOSE CUR_PRODUTO;
+END;
