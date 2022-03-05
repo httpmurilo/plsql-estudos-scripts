@@ -1,0 +1,8 @@
+create table log_ddl (
+  data date,
+  usuario varchar(40),
+  schema varchar2(30),
+  operacao varchar(100),
+  objeto varchar2(1000)
+);
+

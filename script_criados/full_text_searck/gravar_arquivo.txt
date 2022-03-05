@@ -1,0 +1,2 @@
+execute grava_arquivo('arquivo.doc');
+

@@ -1,0 +1,1 @@
+create index ind_teste_doc on teste (documento) indextype is ctxsys.context parameters ('sync (on commit)');

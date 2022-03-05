@@ -1,0 +1,3 @@
+select codigo, nome from teste where contains(documento, 'Marcio', 1) > 0;
+select codigo,nome from teste where contains(documento, 'curso', 1) > 0;
+

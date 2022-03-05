@@ -1,0 +1,15 @@
+create or replace procedure grava_arquivo (p_file in varchar(40))
+as
+  v_bfile bfile;
+  v_blob blob;
+begin
+  insert into teste (codigo,nome,documento)
+  values (seq_doc.nextval,p_file_name,empty_blob())
+  return documento into v_blob;
+  -- Informação de directory tem que ser maiusculo 
+  v_bfile := bfilename('ARQUIVOS',p_file);
+  dbms_lob.fileopen(v_bfile, dbms_lob.file_readonly);     
+  dbms_lob.loadfromfile(v_blob,v_bfile,dbms_lob.getlength(v_bfile));
+  dbms_lob.fileclose(v_bfile);
+  commit;
+

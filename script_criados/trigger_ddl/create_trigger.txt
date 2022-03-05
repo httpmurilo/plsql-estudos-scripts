@@ -1,0 +1,13 @@
+create or replate trigger tri_log_ddl before ddl on database
+declare
+    v_oper varchar2 (30);
+    v_schema varchar2 (30);
+    v_obj varchar2 (30);
+begin
+    select ora_sysevent, ora_dict_obj_owner, ora_dict_obj_name
+    into v_oper, v_schema, v_obj from dual;
+    insert into log_ddl values (sysdate, user, v_schema, v_oper, v_obj);
+end;
+
+
+--trigger ligada ao database, before ddl antes de dropar/criar objeto etc
