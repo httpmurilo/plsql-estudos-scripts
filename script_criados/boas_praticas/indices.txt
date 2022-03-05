@@ -1,0 +1,40 @@
+Criação de Índices
+Porque o índice é importante?
+Índices (Index) são importantes pois diminuem processamento e I/O em disco. Quando usamos um comando SQL para retirar informações de uma tabela, na qual, a coluna da mesma não possui um índice, o Oracle faz um Acesso Total a Tabela para procurar o dado, ou seja, realiza-se um FULL TABLE SCAN degradando a performance do Banco de Dados Oracle. Com o índice isso não ocorre, pois com o índice isso apontará para a linha exata da tabela daquela coluna retirando o dado muito mais rápido.
+
+Crie Índices quando:
+
+Uma coluna contiver uma grande faixa de valores
+
+Uma coluna contiver muitos valores nulos
+
+Quando uma ou mais colunas forem usadas frequentemente em clausulas WHERE ou emJOINS
+
+Se a tabela for muito grande e as consultas realizadas recuperarem menos de 5% dos registros.
+
+NÃO Crie Índices quando:
+
+As colunas não são usadas frequentemente como condição nas consultas
+
+A tabela for pequena ou se os resultados das consultas forem maiores que 5-10% dos registros.
+
+A tabela for atualizada com frequência
+
+As colunas fizerem parte de uma expressão*
+
+* Expressão é quando usado regra de filtro na clausula where, como por exemplo:
+
+SELECT TABLE_NAME
+
+FROM ALL_TABLES
+
+WHERE TABLE_NAME||OWNER = 'DUALSYS'
+
+Observe que na clausula de comparação as colunas TABLE_NAME e OWNER fazem uma expressão de comparação e por consequencia um índice não ajudaria em nada.
+
+ 
+
+Outras coisas importantes de lembrar:
+
+ÍNDICES NÃO SÃO ALTERÁVEIS! (Para você alterar um índice você deve removê-lo e recriá-lo. )
+ÍNDICES ONERAM A PERFORMANCE DE INSERT / UPDATE  ( Não dá pra fazer milagres, se sua tabela tiver muitos índices as performances de alterações podem ser comprometidas )

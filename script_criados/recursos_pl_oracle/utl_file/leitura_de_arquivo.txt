@@ -1,0 +1,21 @@
+DECLARE
+ arquivo UTL_File.File_Type;
+ Linha Varchar2(100);
+BEGIN
+ arquivo := UTL_File.Fopen('DIRETORIO','Lista.txt', 'r');
+ Loop
+ UTL_File.Get_Line(arquivo, Linha);
+ Dbms_Output.Put_Line('Registro: '||linha);
+ End Loop;
+ UTL_File.Fclose(arquivo);
+ Dbms_Output.Put_Line('Arquivo processado com sucesso.');
+EXCEPTION
+ WHEN No_data_found THEN
+ UTL_File.Fclose(arquivo);
+ WHEN UTL_FILE.INVALID_PATH THEN
+ Dbms_Output.Put_Line('Diretório inválido.');
+ UTL_File.Fclose(arquivo);
+ WHEN Others THEN
+ Dbms_Output.Put_Line ('Problemas na leitura do arquivo.');
+ UTL_File.Fclose(arquivo);
+END;
